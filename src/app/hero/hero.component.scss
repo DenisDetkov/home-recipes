@@ -1,0 +1,32 @@
+@import "src/assets/sass/breakpoints";
+
+section {
+
+}
+.container {
+  height: 100%;
+}
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 0px){
+  section {
+    height: 440px;
+  }
+  h1 {
+    margin: 230px auto auto auto;
+    font-size: 59px;
+  }
+}
+
+@media screen and (min-width: #{$pc}) {
+  section {
+    height: 819px;
+  }
+  h1 {
+    margin: 35% auto auto auto;
+    font-size: 128px;
+  }
+}

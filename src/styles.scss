@@ -1,1 +1,122 @@
-/* You can add global styles to this file, and also import other style files */
+@import "normalize.css";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import "src/assets/sass/breakpoints";
+@import "swiper/swiper-bundle.css";
+
+html {
+  background: #130B09;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: white;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  background: transparent;
+  color: inherit;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+label {
+  margin: 0;
+}
+list {
+  list-style: none;
+}
+img {
+  display: block;
+  width: 100%;
+}
+
+button:focus {
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 0px){
+    padding: 0 17px;
+  }
+
+  @media screen and (min-width: #{$pc}) {
+    padding: 0;
+    width: 1239px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row-no-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.align-items-center {
+  align-items: center;
+}
+.align-items-baseline{
+  align-items: baseline;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+.pos-relative {
+  position: relative;
+}
+
+.button-default {
+  background: transparent;
+  border-image: linear-gradient(90deg, #5A3322 0%, #AC816E 100%) 1;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+
+  color: white;
+}
+.swiper-slide {
+  width: fit-content!important;
+  height: fit-content!important;
+}

@@ -1,0 +1,17 @@
+@import "src/assets/sass/breakpoints";
+
+.hero-background {
+  background: url('/assets/image/hero.jpg') no-repeat top;
+}
+
+@media screen and (min-width: 0px){
+  .hero-background {
+    background-size: auto;
+  }
+}
+
+@media screen and (min-width: #{$pc}) {
+  .hero-background {
+    background-size: contain;
+  }
+}
