@@ -1,0 +1,28 @@
+<section id="dishes" class="container flex-column align-items-center">
+  <svg class="crown">
+    <use href="/assets/ico/crown.svg#icon"></use>
+  </svg>
+  <ul class="list row-no-wrap selector">
+    <li [class.active]="activeTab === 'MAIN'" (click)="changeTab('MAIN')"><button>Основні</button></li>
+    <li [class.active]="activeTab === 'BREAKFAST'" (click)="changeTab('BREAKFAST')"><button>Сніданки</button></li>
+    <li [class.active]="activeTab === 'DESERT'" (click)="changeTab('DESERT')"><button>Десерти</button></li>
+  </ul>
+  <div class="swiper-container">
+  <swiper [config]="config">
+    <ng-template *ngFor="let dish of (dishes | async).get(activeTab)" swiperSlide>
+      <div class="dish flex-column pos-relative">
+        <img class="dish-image" [src]="dish.image"/>
+        <button (click)="dishToEdit = dish" class="edit-btn">
+          <img width="24" height="24" src="/assets/ico/ic_edit.svg#icon"/>
+        </button>
+        <p class="dish-title">{{dish.name}}</p>
+        <p class="dish-description">{{dish.description}}</p>
+        <p class="ingredients">Склад: <ng-container *ngFor="let ingr of dish.ingredients; let i = index">{{ingr.name}}<ng-container *ngIf="i < dish.ingredients.length - 1">, </ng-container></ng-container></p>
+        <button class="button-default add" *ngIf="!(dishesStore.bucket$ | async).includes(dish.id)" (click)="addToBucket(dish)">Хочу!</button>
+        <button class="button-default add" *ngIf="(dishesStore.bucket$ | async).includes(dish.id)" (click)="removeFromBucket(dish)">Прибрати</button>
+      </div>
+    </ng-template>
+  </swiper>
+  </div>
+</section>
+<app-new-dish *ngIf="dishToEdit" [dish]="dishToEdit" (close)="dishToEdit = null" (updated)="updateDish($event)"></app-new-dish>

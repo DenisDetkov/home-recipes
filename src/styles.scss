@@ -1,5 +1,5 @@
 @import "normalize.css";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import "src/assets/sass/breakpoints";
 @import "swiper/swiper-bundle.css";
@@ -118,5 +118,32 @@ button:focus {
 }
 .swiper-slide {
   width: fit-content!important;
-  height: fit-content!important;
+  height: auto!important;
+}
+textarea, input, select {
+  padding-left: 32px;
+  border: 1px solid #5A3322;
+  background: transparent;
+  &::placeholder {
+    color: #130B09;
+  }
+}
+input, select {
+  height: 50px;
+}
+
+.modal-background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(4px);
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

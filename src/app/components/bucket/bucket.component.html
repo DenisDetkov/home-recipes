@@ -1,0 +1,23 @@
+<div class="modal-background">
+  <div class="modal pos-relative">
+    <div class="header row-no-wrap align-items-center justify-content-space-between">
+      <p class="title">Замовлення</p>
+      <button class="close" (click)="close.emit()">
+        <svg width="18" height="18">
+          <use href="/assets/ico/ic_close.svg#icon"/>
+        </svg>
+      </button>
+    </div>
+    <ul class="flex-column list dishes-list">
+      <li class="row-no-wrap justify-content-space-between" *ngFor="let dish of dishesInBucket">
+        <p>{{dish.name}}</p>
+        <button (click)="removeFromBucket(dish.id)">
+          <svg width="12" height="12">
+            <use href="/assets/ico/ic_close.svg#icon"/>
+          </svg>
+        </button>
+      </li>
+    </ul>
+    <button [disabled]="dishesInBucket.length === 0" (click)="submitBucket()" type="submit">Підтвердити</button>
+  </div>
+</div>

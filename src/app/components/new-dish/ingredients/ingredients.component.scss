@@ -1,0 +1,36 @@
+
+.hide-show-button {
+  color: #130B09;
+  gap: 20px;
+  &.opened {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+  svg{
+    transition: transform 0.3s;
+  }
+
+}
+.add-new {
+  width: 40px;
+  height: 40px;
+}
+.delete-block{
+  width: 40px;
+  height: 33px;
+}
+ul{
+  margin-top: 30px;
+  gap: 30px;
+}
+.inputs{
+  margin-left: 10px;
+  gap: 15px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #130B09;
+}

@@ -1,0 +1,25 @@
+<div class="modal-background">
+  <div class="modal pos-relative">
+    <div class="header row-no-wrap align-items-center justify-content-space-between">
+      <p class="title">{{dish.id ? 'Редагування' : 'Нова позиція'}}</p>
+      <button class="close" (click)="close.emit()">
+        <svg width="18" height="18">
+          <use href="/assets/ico/ic_close.svg#icon"/>
+        </svg>
+      </button>
+    </div>
+    <form class="flex-column" [formGroup]="dishForm" (ngSubmit)="submit()">
+      <img class="photo-preview" [src]="dish.image" onerror="this.src='https://via.assets.so/img.jpg?w=400&h=300&tc=black&bg=white'"/>
+      <input formControlName="image" type="text" placeholder="Фото">
+      <select formControlName="type" class="dish-type">
+        <option value="MAIN">Основні</option>
+        <option value="BREAKFAST">Сніданки</option>
+        <option value="DESERT">Десерти</option>
+      </select>
+      <input formControlName="name" type="text" placeholder="Назва">
+      <textarea formControlName="description" placeholder="Опис"></textarea>
+      <app-ingredients formControlName="ingredients"></app-ingredients>
+      <button type="submit">{{dish.id ? 'Зберегти' : 'Опублікувати'}}</button>
+    </form>
+  </div>
+</div>

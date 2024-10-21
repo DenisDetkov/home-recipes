@@ -1,0 +1,31 @@
+<button (click)="opened = !opened" [class.opened]="opened" type="button" class="hide-show-button row align-items-center">
+  Інгредієнти ({{ingredients ? ingredients.length : 0}})
+  <svg width="20" height="15">
+    <use href="/assets/ico/arrow-down.svg#arrow"></use>
+  </svg>
+</button>
+<form *ngIf="opened" [formGroup]="form">
+  <ul class="list flex-column" formArrayName="blocks">
+    <li *ngFor="let block of getArray().controls; let i = index" [formGroup]="getFormGroup(block)">
+      <div class="row">
+        <img (click)="remove(i)" class="delete-block pointer opacity-on-hover" src="/assets/ico/minus_icon.png"/>
+        <div class="inputs flex-column">
+          <h3>Інгр. {{i + 1}}</h3>
+          <label>
+            Назва
+            <input formControlName="name" type="text"/>
+          </label>
+          <label>
+            Кількість
+            <input formControlName="quantity" type="number"/>
+          </label>
+          <label>
+            Од. виміру
+            <input formControlName="quantityName" type="text"/>
+          </label>
+        </div>
+      </div>
+    </li>
+    <img class="add-new pointer" (click)="addNew()" src="/assets/ico/plus_icon.png"/>
+  </ul>
+</form>

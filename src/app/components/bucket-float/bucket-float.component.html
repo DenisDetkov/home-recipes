@@ -1,0 +1,4 @@
+<button (click)="bucketOpened.emit()" class="bucket-float">
+  <div class="amount">{{(dishesStore.bucket$ | async).length}}</div>
+  <img src="/assets/image/bucket.png"/>
+</button>

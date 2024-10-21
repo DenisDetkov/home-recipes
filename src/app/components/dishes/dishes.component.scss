@@ -18,6 +18,9 @@
     }
   }
 }
+.dish {
+  height: 100%;
+}
 .swiper-container {
   margin-top: 50px;
   width: 100%;
@@ -32,11 +35,25 @@
 }
 .ingredients {
   margin-top: 30px;
+  margin-bottom: 36px;
 }
 .add {
-  margin-top: 36px;
+  margin-top: auto;
   padding: 13px 0;
   width: 100%;
+}
+.edit-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  padding: 0;
+  z-index: 3;
+}
+section {
+  padding-bottom: 100px;
+}
+.dish-image {
+  object-fit: cover;
 }
 @media screen and (min-width: 0px){
   .crown {
@@ -60,6 +77,9 @@
   }
   .dish {
     width: 100%;
+  }
+  .dish-image {
+    height: 310px;
   }
 }
 
@@ -94,7 +114,7 @@
         padding-right: 53px;
       }
   }
-}
-section {
-  padding-bottom: 100px;
+  .dish-image {
+    height: 250px;
+  }
 }

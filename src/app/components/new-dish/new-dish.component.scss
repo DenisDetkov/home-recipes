@@ -1,0 +1,76 @@
+@import "../../../assets/sass/breakpoints";
+
+.modal {
+  box-sizing: border-box;
+  background: linear-gradient(318.71deg, #E7C7A8 0%, #C19A74 63%, #5A3322 100%);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  width: 90%;
+}
+
+.title {
+  font-family: "Great Vibes", cursive;
+}
+form {
+  margin-top: 34px;
+  gap: 20px;
+  &.ng-submitted .ng-invalid {
+    border: 1px solid red;
+  }
+}
+.dish-type {
+  color: #130B09;
+}
+.photo-preview {
+  max-width: 400px;
+  max-height: 309px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+textarea {
+  height: 127px;
+  padding-top: 24px;
+  box-sizing: border-box;
+}
+
+button[type='submit'] {
+  width: 100%;
+  height: 50px;
+  padding: 13px 0;
+  box-sizing: border-box;
+  background: #130B09;
+  color: #FFECE4;
+  margin-top: 20px;
+}
+@media screen and (min-width: 0px){
+  .modal {
+    width: 100%;
+    padding: 24px 12px 32px 12px;
+  }
+  .title {
+    font-size: 59px;
+  }
+  .close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+  }
+}
+
+@media screen and (min-width: #{$pc}) {
+  .modal {
+    width: 656px;
+    padding: 12px 64px 60px 64px;
+  }
+  .title {
+    font-size: 64px;
+  }
+  .close {
+    position: relative;
+  }
+}

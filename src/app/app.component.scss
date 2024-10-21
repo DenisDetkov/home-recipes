@@ -12,6 +12,6 @@
 
 @media screen and (min-width: #{$pc}) {
   .hero-background {
-    background-size: contain;
+    background-size: cover;
   }
 }
