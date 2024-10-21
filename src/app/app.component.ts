@@ -11,6 +11,7 @@ import {Dish} from "./_models/dish";
 export class AppComponent {
   newDishFormOpened = false;
   bucketOpened = false;
+  dishToEdit: Dish;
 
   constructor(readonly dishesStore: DishesStore) {
   }
@@ -18,5 +19,10 @@ export class AppComponent {
   addNewDish(dish: Dish) {
     this.dishesStore.addDish(dish);
     this.newDishFormOpened = false;
+  }
+
+  updateDish(dish: Dish) {
+    this.dishesStore.updateDish(dish);
+    this.dishToEdit = null;
   }
 }

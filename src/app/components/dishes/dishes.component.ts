@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {SwiperOptions} from "swiper";
 import {DishesStore} from "./dishes.store";
 import {Dish} from "../../_models/dish";
@@ -9,6 +9,8 @@ import {Dish} from "../../_models/dish";
   styleUrls: ['./dishes.component.scss']
 })
 export class DishesComponent {
+  @Output() editDish: EventEmitter<Dish> = new EventEmitter();
+
   config: SwiperOptions = {
     freeMode: true,
     spaceBetween: 24,
@@ -28,7 +30,6 @@ export class DishesComponent {
   activeTab: 'MAIN' | 'BREAKFAST' | 'DESERT' = 'MAIN'
 
   dishes = this.dishesStore.dishes$;
-  dishToEdit: Dish;
 
   changeTab(newTab: 'MAIN' | 'BREAKFAST' | 'DESERT') {
     this.activeTab = newTab;
@@ -45,10 +46,5 @@ export class DishesComponent {
 
   removeFromBucket(dish: Dish): void {
     this.dishesStore.removeFromBucket(dish.id);
-  }
-
-  updateDish(dish: Dish) {
-    this.dishesStore.updateDish(dish);
-    this.dishToEdit = null;
   }
 }

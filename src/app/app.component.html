@@ -1,8 +1,9 @@
 <app-header (openNewDishForm)="newDishFormOpened = true" (openBucket)="bucketOpened = true"></app-header>
 <div class="hero-background">
   <app-hero></app-hero>
-  <app-dishes></app-dishes>
+  <app-dishes (editDish)="dishToEdit = $event"></app-dishes>
 </div>
 <app-bucket-float (bucketOpened)="bucketOpened = true"></app-bucket-float>
 <app-new-dish *ngIf="newDishFormOpened" (close)="newDishFormOpened = false" (created)="addNewDish($event)"></app-new-dish>
+<app-new-dish *ngIf="dishToEdit" [dish]="dishToEdit" (close)="dishToEdit = null" (updated)="updateDish($event)"></app-new-dish>
 <app-bucket *ngIf="bucketOpened" (close)="bucketOpened = false"></app-bucket>

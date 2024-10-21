@@ -12,7 +12,7 @@
     <ng-template *ngFor="let dish of (dishes | async).get(activeTab)" swiperSlide>
       <div class="dish flex-column pos-relative">
         <img class="dish-image" [src]="dish.image"/>
-        <button (click)="dishToEdit = dish" class="edit-btn">
+        <button (click)="editDish.emit(dish)" class="edit-btn">
           <img width="24" height="24" src="/assets/ico/ic_edit.svg#icon"/>
         </button>
         <p class="dish-title">{{dish.name}}</p>
@@ -25,4 +25,3 @@
   </swiper>
   </div>
 </section>
-<app-new-dish *ngIf="dishToEdit" [dish]="dishToEdit" (close)="dishToEdit = null" (updated)="updateDish($event)"></app-new-dish>
