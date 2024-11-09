@@ -21,7 +21,16 @@
           </label>
           <label>
             Од. виміру
-            <input formControlName="quantityName" type="text"/>
+            <select formControlName="type">
+              <option selected value="PIECE">штук</option>
+              <option value="PACKET">пакет</option>
+              <option value="TEA_SPOON">ч. ложка</option>
+              <option value="TABLE_SPOON">стол. ложка</option>
+              <option value="MLITER">мілілітр</option>
+              <option value="LITER">літр</option>
+              <option value="GRAM">грам</option>
+              <option value="KILOGRAM">кілограм</option>
+            </select>
           </label>
         </div>
       </div>

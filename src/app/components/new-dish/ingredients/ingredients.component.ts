@@ -75,7 +75,7 @@ export class IngredientsComponent implements ControlValueAccessor, Validator {
     let newGroup = this.fb.group({
       name: [null, Validators.required],
       quantity: [1, Validators.required],
-      quantityName: [null, Validators.required]
+      type: [null, Validators.required]
     });
 
     this.ingredients.push(newAnchor);
@@ -95,7 +95,7 @@ export class IngredientsComponent implements ControlValueAccessor, Validator {
       let newGroup = this.fb.group({
         name: [e.name, Validators.required],
         quantity: [e.quantity, Validators.required],
-        quantityName: [e.quantityName, Validators.required]
+        type: [e.type, Validators.required]
       });
       this.bind(newGroup, e);
       this.getArray().push(newGroup);
@@ -114,7 +114,7 @@ export class IngredientsComponent implements ControlValueAccessor, Validator {
     formGroup.valueChanges.subscribe((res) => {
       object.name = formGroup.controls['name'].value!;
       object.quantity = formGroup.controls['quantity'].value!;
-      object.quantityName = formGroup.controls['quantityName'].value!;
+      object.type = formGroup.controls['type'].value!;
       this.onChange(this.ingredients);
     })
   }
